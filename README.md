@@ -69,6 +69,14 @@ python src/Monopogen.py --help
     Fixed header format for downstream compatibility
     Automated header validation and fixing
 
+    Fix VCF header issues
+
+    # Fix a single file
+    ./scripts/fix_vcf_headers.sh output/germline/chr20.gp.vcf.gz
+
+    # Fix multiple files
+    ./scripts/fix_vcf_headers.sh output/germline/*.vcf.gz
+
 3. Error Handling
 
     Robust handling of missing INFO fields in VCF files
