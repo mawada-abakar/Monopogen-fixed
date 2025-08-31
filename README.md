@@ -47,6 +47,11 @@ cd Monopogen-fixed
 pip install -r requirements.txt
 Rscript scripts/install_r_packages.R
 
+# Verify Your Setup
+```bash
+# Check if all dependencies are installed
+./scripts/verify_setup.py
+
 # Run the pipeline
 python src/Monopogen.py --help
 
@@ -57,6 +62,7 @@ python src/Monopogen.py --help
     Troubleshooting - Common issues and solutions
 
 🔧 Key Fixes Applied
+
 1. Samtools/Bcftools Compatibility
 
     Updated from deprecated samtools mpileup to modern bcftools mpileup
