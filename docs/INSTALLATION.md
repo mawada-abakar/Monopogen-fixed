@@ -131,9 +131,6 @@ export MONOPOGEN_PATH=$(pwd)
 chmod +x scripts/fix_vcf_headers.sh
 chmod +x scripts/verify_setup.py
 
-# Test the script
-./scripts/fix_vcf_headers.sh --help
-
 # Add to ~/.bashrc for persistence
 echo "export MONOPOGEN_PATH=$(pwd)" >> ~/.bashrc
 source ~/.bashrc
@@ -142,6 +139,16 @@ Step 5: Test Installation
 
 # Test the main script
 python3 src/Monopogen.py --help
+
+# Test the script
+./scripts/fix_vcf_headers.sh --help
+
+# Run setup verification
+python3 scripts/verify_setup.py
+# or
+./scripts/verify_setup.py
+
+# If verification passes, you're ready to go!
 
 # You should see the help message with available commands
 
