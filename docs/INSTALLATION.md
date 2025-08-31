@@ -122,12 +122,18 @@ R
 Option C: Use conda for R packages:
 conda install -c conda-forge r-r.utils r-data.table r-reshape2 r-ggplot2 r-dplyr
 
-Step 4: Set Up Environment
-
+Step 4: Set Up Environment and Scripts
+```bash
 # Set environment variable
 export MONOPOGEN_PATH=$(pwd)
 
-# Make it permanent (add to ~/.bashrc)
+# Make scripts executable
+chmod +x scripts/fix_vcf_headers.sh
+
+# Test the script
+./scripts/fix_vcf_headers.sh --help
+
+# Add to ~/.bashrc for persistence
 echo "export MONOPOGEN_PATH=$(pwd)" >> ~/.bashrc
 source ~/.bashrc
 
