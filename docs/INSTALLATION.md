@@ -129,6 +129,7 @@ export MONOPOGEN_PATH=$(pwd)
 
 # Make scripts executable
 chmod +x scripts/fix_vcf_headers.sh
+chmod +x scripts/verify_setup.py
 
 # Test the script
 ./scripts/fix_vcf_headers.sh --help
