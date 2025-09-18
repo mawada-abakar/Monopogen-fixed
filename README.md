@@ -143,11 +143,6 @@ Memory issues:
     Process smaller chromosomal regions
     Ensure sufficient system memory (16GB+ recommended)
 
-📖 Documentation
-
-    Installation Guide - Detailed setup instructions
-    Tutorial - Complete walkthrough
-    Troubleshooting - Common issues and solutions
 
 🔧 Key Fixes Applied
 
