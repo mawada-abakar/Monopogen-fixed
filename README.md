@@ -63,6 +63,21 @@ sample1,/path/to/sample1.bam
 sample2,/path/to/sample2.bam
 sample3,/path/to/sample3.bam
 
+Configuration Setup
+# Copy and edit configuration template
+cp config/config_template.ini config/config.ini
+nano config/config.ini
+
+# Update paths in config.ini:
+# - reference_genome = /path/to/your/reference.fa
+# - reference_panel = /path/to/your/panel.vcf.gz
+# - output_dir = /path/to/your/output
+
+Reference Data Requirements
+
+    Human reference genome (GRCh38 recommended)
+    1000 Genomes reference panel for population phasing
+    Target regions file (e.g target_chromosomes: chr20 to run this example)
 
 🛠️ Usage Examples
 Step 1: Prepare BAM File List
@@ -108,6 +123,25 @@ python src/Monopogen.py somatic \
     -g GRCh38.chr20.fa \
     -t 2
 
+🔧 Troubleshooting
+
+Common Issues
+VCF header warnings:
+./scripts/fix_vcf_headers.sh problematic_file.vcf.gz
+
+Tool not found errors:
+# Activate conda environment
+conda activate monopogen
+which samtools bcftools
+
+Python import errors:
+pip install -r requirements.txt --force-reinstall
+
+Memory issues:
+
+    Reduce num_threads in the configuration
+    Process smaller chromosomal regions
+    Ensure sufficient system memory (16GB+ recommended)
 
 📖 Documentation
 
