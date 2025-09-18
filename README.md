@@ -48,12 +48,66 @@ pip install -r requirements.txt
 Rscript scripts/install_r_packages.R
 
 # Verify Your Setup
-```bash
+
 # Check if all dependencies are installed
 ./scripts/verify_setup.py
 
 # Run the pipeline
 python src/Monopogen.py --help
+
+📋 Input Requirements
+
+BAM Files Format
+# BAM list file (bam_list.lst)
+sample1,/path/to/sample1.bam
+sample2,/path/to/sample2.bam
+sample3,/path/to/sample3.bam
+
+
+🛠️ Usage Examples
+Step 1: Prepare BAM File List
+Create a BAM list file (bam_list.lst ) with this format:
+# Format: sample_name,/path/to/sample.bam
+sample1,/path/to/sample1.bam
+sample2,/path/to/sample2.bam
+sample3,/path/to/sample3.bam
+
+Step 2: Data Preprocessing
+# Set environment variables
+export MONOPOGEN_PATH=$(pwd)
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${MONOPOGEN_PATH}/apps
+
+# Run preprocessing to filter BAM files
+python src/Monopogen.py preProcess \
+    -b bam_list.lst \
+    -o output/ \
+    -a ${MONOPOGEN_PATH}/apps \
+    -m 3 \
+    -t 2
+
+Step 3: Germline Variant Calling
+# Run germline variant calling with phasing
+python src/Monopogen.py germline \
+    -r region.lst \
+    -s all \
+    -o output/ \
+    -g /path/to/reference/chr20_2Mb.hg38.fa \
+    -p /path/to/reference/panel.vcf.gz \
+    -a ${MONOPOGEN_PATH}/apps \
+    -t 2
+
+Step 4: Somatic Variant Calling
+# Run somatic variant analysis
+python src/Monopogen.py somatic \
+    -i output/germline/ \
+    -r region.lst \
+    -o output/ \
+    -l cell_barcode_file.csv \
+    -s all \
+    -a ${MONOPOGEN_PATH}/apps \
+    -g GRCh38.chr20.fa \
+    -t 2
+
 
 📖 Documentation
 
