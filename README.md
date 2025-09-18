@@ -79,6 +79,11 @@ Reference Data Requirements
     1000 Genomes reference panel for population phasing
     Target regions file (e.g target_chromosomes: chr20 to run this example)
 
+## 📊 Example Data and Test Cases
+
+### Using Original Monopogen Test Data
+This repository uses the same example datasets as the original Monopogen pipeline. **All example data and test cases are available in the original repository** - simply use them with this fixed implementation to avoid the compatibility issues.
+
 🛠️ Usage Examples
 Step 1: Prepare BAM File List
 Create a BAM list file (bam_list.lst ) with this format:
