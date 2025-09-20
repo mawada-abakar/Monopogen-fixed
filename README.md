@@ -132,17 +132,19 @@ python src/Monopogen.py somatic \
 
 Germline Analysis Results
 
-    chr*.gl.vcf.gz - Initial genotype variants
-    chr*.gp.vcf.gz - Genotype probability variants
+    chr*.gl.vcf.gz - Genotype likelihoods variants
+    chr*.gp.vcf.gz - Genotype probabilities variants
     chr*.phased.vcf.gz - Phased variants (main result)
     preprocessing.log - Processing logs
 
 Somatic Analysis Results
 
-    chr*.somatic.vcf.gz - Somatic variants per cell
-    chr*.consensus.vcf.gz - High-confidence somatic calls
-    quality_metrics.txt - Coverage and quality statistics
-
+    chr*.putativeSNVs.csv - contains actual putative somatic variants
+    LDrefinement_germline.chr*.pdf -  contains plots showing linkage disequilibrium patterns
+    svm_feature.chr*.pdf - Machine learning model performance visualization
+    chr*.SNV_mat.RDS - R data structure with SNV matrix
+    chr20.germlineTrioLoci_model.csv & chr20.germlineTwoLoci_model.csv - Statistical models for germline variants
+   
 🔧 Troubleshooting
 
 Common Issues
@@ -196,7 +198,7 @@ Memory issues:
 For a typical 2Mb region of chr20:
 
     Germline variants: ~1,000-2,000 variants
-    Somatic variants: ~10-100 variants (much fewer than germline)
+    Somatic variants: ~10-50 variants (much fewer than germline)
     Processing time: 30 minutes to 2 hours
 
 🤝 Contributing
