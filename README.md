@@ -128,6 +128,21 @@ python src/Monopogen.py somatic \
     -g GRCh38.chr20.fa \
     -t 2
 
+📊 Pipeline Output
+
+Germline Analysis Results
+
+    chr*.gl.vcf.gz - Initial genotype variants
+    chr*.gp.vcf.gz - Genotype probability variants
+    chr*.phased.vcf.gz - Phased variants (main result)
+    preprocessing.log - Processing logs
+
+Somatic Analysis Results
+
+    chr*.somatic.vcf.gz - Somatic variants per cell
+    chr*.consensus.vcf.gz - High-confidence somatic calls
+    quality_metrics.txt - Coverage and quality statistics
+
 🔧 Troubleshooting
 
 Common Issues
@@ -153,10 +168,10 @@ Memory issues:
 
 1. Samtools/Bcftools Compatibility
 
-    Updated from deprecated samtools mpileup to modern bcftools mpileup
-    Removed incompatible flags (-t DP, --incl-flags, --excl-flags)
-    Added proper BCF output formatting (-Ou)
-
+    Updated from deprecated samtools mpileup to bcftools mpileup
+    Removed incompatible flags options (-t DP, -v , --incl-flags, --excl-flags)
+    Adding (-Ou) to output uncompressed BCF format
+    
 2. VCF Header Issues
 
     Added missing contig definitions (##contig=<ID=chr20,length=64444167>)
